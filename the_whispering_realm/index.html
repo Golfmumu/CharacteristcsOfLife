@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#101322" />
+  <title>The Whispering Realm</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="game-root">
+    <canvas id="game-canvas"></canvas>
+
+    <section id="title-screen" class="screen">
+      <div class="title-panel">
+        <p class="eyebrow">A CINEMATIC ANIME FANTASY ADVENTURE</p>
+        <h1>THE WHISPERING<br><span>REALM</span></h1>
+        <p class="tagline">Five forgotten places. One secret that remembers you.</p>
+        <button id="start-button" class="primary-button">Begin Journey</button>
+        <p class="small-note">Best experienced with headphones · Keyboard, mouse or touch</p>
+      </div>
+    </section>
+
+    <section id="loading-screen" class="screen hidden">
+      <div class="loading-card">
+        <div class="spinner"></div>
+        <h2>Opening the realm...</h2>
+        <p>Gathering forgotten memories</p>
+      </div>
+    </section>
+
+    <header id="hud" class="hud hidden">
+      <div class="hud-left">
+        <div class="chapter-label" id="chapter-label">CHAPTER 01</div>
+        <div class="chapter-name" id="chapter-name">The Silent Village</div>
+      </div>
+      <div class="hud-right">
+        <button id="journal-button" class="hud-button">Journal <span>J</span></button>
+        <button id="inventory-button" class="hud-button">Satchel <span>I</span></button>
+        <button id="pause-button" class="hud-button">Pause <span>Esc</span></button>
+      </div>
+    </header>
+
+    <div id="objective" class="objective hidden">
+      <span class="objective-kicker">CURRENT MEMORY</span>
+      <strong id="objective-text">Find the first memory shard</strong>
+      <span id="objective-progress">0 / 1 memories</span>
+    </div>
+
+    <div id="interaction-prompt" class="interaction-prompt hidden">
+      <span class="keycap">E</span><span id="interaction-text">Investigate</span>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <section id="journal-panel" class="side-panel hidden">
+      <button class="close-button" data-close="journal-panel">×</button>
+      <p class="eyebrow">FIELD NOTES</p>
+      <h2>Journey Journal</h2>
+      <div id="journal-content"></div>
+    </section>
+
+    <section id="inventory-panel" class="side-panel hidden">
+      <button class="close-button" data-close="inventory-panel">×</button>
+      <p class="eyebrow">WHAT YOU CARRY</p>
+      <h2>Memory Satchel</h2>
+      <div id="inventory-content" class="inventory-grid"></div>
+    </section>
+
+    <section id="pause-panel" class="modal hidden">
+      <div class="modal-card">
+        <p class="eyebrow">THE WORLD IS HOLDING ITS BREATH</p>
+        <h2>Journey Paused</h2>
+        <button id="resume-button" class="primary-button">Continue</button>
+        <button id="save-button" class="secondary-button">Save Journey</button>
+        <button id="back-title-button" class="secondary-button">Return to Title</button>
+      </div>
+    </section>
+
+    <div id="mobile-controls" class="mobile-controls hidden">
+      <div id="joystick" class="joystick"><div id="joystick-knob"></div></div>
+      <div class="mobile-actions">
+        <button id="mobile-run" class="round-control">RUN</button>
+        <button id="mobile-interact" class="round-control interact-control">E</button>
+      </div>
+    </div>
+
+    <div id="chapter-banner" class="chapter-banner hidden">
+      <span id="banner-kicker">CHAPTER 01</span>
+      <strong id="banner-title">The Silent Village</strong>
+    </div>
+
+    <footer id="controls-hint" class="controls-hint hidden">
+      WASD Move · Mouse Drag Look · Shift Run · E Interact · J Journal · I Satchel
+    </footer>
+  </div>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
